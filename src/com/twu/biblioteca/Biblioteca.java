@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,6 +8,7 @@ import java.util.List;
  */
 public class Biblioteca {
     String welcomeMessage = "Welcome to Biblioteca";
+    List<Book> books = new ArrayList<Book>();
 
     public Biblioteca() {
     }
@@ -18,5 +20,12 @@ public class Biblioteca {
 
     public String welcomeUser() {
         return welcomeMessage;
+    }
+
+    public List<Book> listBooks() {
+        List<Book> bookList = new ArrayList<Book>();
+        Book book = new Book("Harry Potter");
+        bookList.add(book);
+        return bookList;
     }
 }
