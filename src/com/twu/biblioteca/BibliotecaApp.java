@@ -4,10 +4,10 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         Biblioteca biblioteca = new Biblioteca();
+        Menu menu = new Menu();
+
         System.out.println(biblioteca.welcomeUser());
 
-        for(Book book : biblioteca.listBooks()) {
-            System.out.println(book.showDetails() + "\n");
-        }
+        System.out.println(menu.listOptions());
     }
 }
