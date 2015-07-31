@@ -11,11 +11,12 @@ public class Biblioteca {
     List<Book> books = new ArrayList<Book>();
 
     public Biblioteca() {
+        initialiazeBookList();
     }
 
     public Biblioteca(String welcomeMessage) {
-
         this.welcomeMessage = welcomeMessage;
+        initialiazeBookList();
     }
 
     public String welcomeUser() {
@@ -23,9 +24,11 @@ public class Biblioteca {
     }
 
     public List<Book> listBooks() {
-        List<Book> bookList = new ArrayList<Book>();
+        return books;
+    }
+
+    private void initialiazeBookList() {
         Book book = new Book("Harry Potter");
-        bookList.add(book);
-        return bookList;
+        books.add(book);
     }
 }
