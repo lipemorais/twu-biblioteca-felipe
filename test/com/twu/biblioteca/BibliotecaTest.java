@@ -25,12 +25,13 @@ public class BibliotecaTest {
     @Test
     public void listBooks_ShouldListAllBooks() throws Exception {
         biblioteca = new Biblioteca();
-        Book book = new Book("Harry Potter");
+        String separator = " - ";
+        Book book = new Book("Harry Potter", "J. K. Rowling", 1997);
         List<Book> expected = new ArrayList<Book>();
         expected.add(book);
+        Book expectedBook = expected.get(0);
 
         assertEquals(expected.size(), biblioteca.listBooks().size());
-
-        assertEquals(expected.get(0).name, biblioteca.listBooks().get(0).name);
+        assertEquals(expectedBook.name + separator + expectedBook.author + separator + expectedBook.year , biblioteca.listBooks().get(0).showDetails());
     }
 }

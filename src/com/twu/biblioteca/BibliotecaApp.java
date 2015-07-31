@@ -7,7 +7,7 @@ public class BibliotecaApp {
         System.out.println(biblioteca.welcomeUser());
 
         for(Book book : biblioteca.listBooks()) {
-            System.out.println(book.name + "\n");
+            System.out.println(book.showDetails() + "\n");
         }
     }
 }

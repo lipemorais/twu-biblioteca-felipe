@@ -28,7 +28,7 @@ public class Biblioteca {
     }
 
     private void initialiazeBookList() {
-        Book book = new Book("Harry Potter");
+        Book book = new Book("Harry Potter", "J. K. Rowling", 1997);
         books.add(book);
     }
 }
