@@ -5,7 +5,7 @@ import com.twu.biblioteca.Biblioteca;
 /**
  * Created by gdias on 8/3/15.
  */
-public class InvalidOption extends Option {
+public class InvalidOption extends AbstractOption {
     public InvalidOption(int id, String name) {
         super(id, name);
     }

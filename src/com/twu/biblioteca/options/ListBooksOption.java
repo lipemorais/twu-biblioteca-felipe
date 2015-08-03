@@ -5,7 +5,7 @@ import com.twu.biblioteca.Biblioteca;
 /**
  * Created by gdias on 8/3/15.
  */
-public class ListBooksOption extends Option {
+public class ListBooksOption extends AbstractOption {
     public ListBooksOption(int id, String name) {
         super(id, name);
     }

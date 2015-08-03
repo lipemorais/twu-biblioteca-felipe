@@ -1,8 +1,6 @@
 package com.twu.biblioteca.options;
 
 import com.twu.biblioteca.Biblioteca;
-import com.twu.biblioteca.Book;
-import com.twu.biblioteca.options.Option;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -13,7 +11,7 @@ import static org.junit.Assert.*;
 public class OptionTest {
     @Test
     public void equals_ShouldReturnFalse_WhenTheParameterIsNotAnOption() throws Exception {
-        Option optionA = getConcreteOption(1, "List books");
+        AbstractOption optionA = getConcreteOption(1, "List books");
         String fakeOption = "AHuahaa";
 
         assertFalse(optionA.equals(fakeOption));
@@ -21,30 +19,30 @@ public class OptionTest {
 
     @Test
     public void equals_ShouldReturnTrue_WhenOptionsAreTheSame() throws Exception {
-        Option optionA = getConcreteOption(1, "List books");
-        Option optionB = optionA;
+        AbstractOption optionA = getConcreteOption(1, "List books");
+        AbstractOption optionB = optionA;
 
         assertTrue(optionA.equals(optionB));
     }
 
     @Test
     public void equals_ShouldReturnFalse_WhenOptionsAreDifferent() throws Exception {
-        Option optionA = getConcreteOption(1, "List books");
+        AbstractOption optionA = getConcreteOption(1, "List books");
 
-        Option optionB = getConcreteOption(2, "List books");
+        AbstractOption optionB = getConcreteOption(2, "List books");
 
         assertFalse(optionA.equals(optionB));
     }
 
     @Test
     public void execute_ShouldOverrideExecuteMethod() throws Exception {
-        Option overridenOption = getConcreteOption(0, "");
+        AbstractOption overridenOption = getConcreteOption(0, "");
 
         assertEquals("", overridenOption.execute(new Biblioteca()));
     }
 
-    private Option getConcreteOption(int id, String name) {
-        Option optionA = new Option(id, name) {
+    private AbstractOption getConcreteOption(int id, String name) {
+        AbstractOption optionA = new AbstractOption(id, name) {
             @Override
             public String execute(Biblioteca biblioteca) {
                 return "";

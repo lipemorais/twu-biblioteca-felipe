@@ -1,6 +1,7 @@
 package com.twu.biblioteca.options;
 
 import com.twu.biblioteca.Biblioteca;
+import com.twu.biblioteca.MenuOptionsConsts;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -11,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 public class InvalidOptionTest {
     @Test
     public void execute_ShouldReturnTheInvalidOptionMessage() throws Exception {
-        Option option = new InvalidOption(0, "Invalid option");
+        AbstractOption option = new InvalidOption(MenuOptionsConsts.INVALID_OPTION_NUMBER, MenuOptionsConsts.INVALID_OPTION_NAME);
         assertEquals("Select a valid option!", option.execute(new Biblioteca()));
     }
 }

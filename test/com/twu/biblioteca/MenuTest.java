@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.options.InvalidOption;
 import com.twu.biblioteca.options.ListBooksOption;
+import com.twu.biblioteca.options.QuitOption;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -26,7 +27,12 @@ public class MenuTest {
 
     @Test
     public void selectOption_ShouldReturnAListBooksOption_WhenReceivesListBooksOptionNumber() throws Exception {
-        assertTrue(menu.selectOption(Menu.LIST_BOOKS_NUMBER) instanceof ListBooksOption);
+        assertTrue(menu.selectOption(MenuOptionsConsts.LIST_BOOKS_OPTION_NUMBER) instanceof ListBooksOption);
+    }
+
+    @Test
+    public void selectOption_ShouldReturnAQuitOption_WhenReceivesQuitOptionNumber() throws Exception {
+        assertTrue(menu.selectOption(MenuOptionsConsts.QUIT_OPTION_NUMBER) instanceof QuitOption);
     }
 
     @Test
