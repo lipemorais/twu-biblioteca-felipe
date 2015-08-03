@@ -22,7 +22,7 @@ public class MenuTest {
 
     @Test
     public void listOptions_ShouldReturnTheMenuOptions() throws Exception {
-        assertEquals("1 - List books", menu.listOptions());
+        assertEquals("1 - List books\n2 - Quit\n", menu.listOptions());
     }
 
     @Test

@@ -14,6 +14,11 @@ public abstract class AbstractOption {
         this.name = name;
     }
 
+    public String showDetails() {
+        String separator = " - ";
+        return id + separator + name;
+    }
+
     @Override
     public boolean equals(Object other) {
         if (other instanceof AbstractOption) {

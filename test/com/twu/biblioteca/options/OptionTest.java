@@ -41,6 +41,12 @@ public class OptionTest {
         assertEquals("", overridenOption.execute(new Biblioteca()));
     }
 
+    @Test
+    public void showDetails_ShouldReturnIdAndName() throws Exception {
+        AbstractOption option = getConcreteOption(1, "List books");
+        assertEquals("1 - List books", option.showDetails());
+    }
+
     private AbstractOption getConcreteOption(int id, String name) {
         AbstractOption optionA = new AbstractOption(id, name) {
             @Override

@@ -1,27 +1,12 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.options.AbstractOption;
-
-import java.util.Scanner;
-
 public class BibliotecaApp {
 
     public static void main(String[] args) {
         Biblioteca biblioteca = new Biblioteca();
         Menu menu = new Menu();
+        GUI gui = new GUI(biblioteca, menu);
 
-        System.out.println(biblioteca.welcomeUser());
-
-        System.out.println(menu.listOptions());
-
-        String userInput = getUserInput();
-
-        AbstractOption selectedOption = menu.selectOption(Integer.parseInt(userInput));
-
-        System.out.println(selectedOption.execute(biblioteca));
-    }
-
-    private static String getUserInput() {
-        return new Scanner(System.in).nextLine();
-    }
+        gui.start();
+   }
 }
