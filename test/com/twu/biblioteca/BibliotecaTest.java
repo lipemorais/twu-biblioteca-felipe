@@ -34,9 +34,14 @@ public class BibliotecaTest {
 
         assertEquals(expected, biblioteca.listBooks());
 
-        expected.remove(0);
+        expected.remove(2);
+        biblioteca.checkout("Freakonomics");
 
-        biblioteca.checkout("Harry Potter");
+        assertEquals(expected, biblioteca.listBooks());
+
+
+        expected.add(new Book("Freakonomics", "Stephen Dubner", 2005));
+        biblioteca.returnBook("Freakonomics");
 
         assertEquals(expected, biblioteca.listBooks());
     }
