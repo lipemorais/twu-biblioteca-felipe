@@ -35,7 +35,7 @@ public class GUI {
 
     }
 
-    private static String getUserInput() {
+    public static String getUserInput() {
         return new Scanner(System.in).nextLine();
     }
 }

@@ -13,6 +13,11 @@ public class ListBooksOptionTest {
     @Test
     public void execute_ShouldReturnAListOfBooksAsString() throws Exception {
         AbstractOption listBooksOption = new ListBooksOption(MenuOptionsConsts.LIST_BOOKS_OPTION_NUMBER, MenuOptionsConsts.LIST_BOOKS_OPTION_NAME);
-        assertEquals("Harry Potter - J. K. Rowling - 1997\n", listBooksOption.execute(new Biblioteca()));
+
+        String expected = "Harry Potter - J. K. Rowling - 1997\n";
+        expected += "The Little Prince - Antoine de Saint-Exupéry - 1943\n";
+        expected += "Freakonomics - Stephen Dubner - 2005\n";
+
+        assertEquals(expected, listBooksOption.execute(new Biblioteca()));
     }
 }

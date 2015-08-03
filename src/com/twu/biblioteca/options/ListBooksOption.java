@@ -1,6 +1,7 @@
 package com.twu.biblioteca.options;
 
 import com.twu.biblioteca.Biblioteca;
+import com.twu.biblioteca.Book;
 
 /**
  * Created by gdias on 8/3/15.
@@ -12,6 +13,10 @@ public class ListBooksOption extends AbstractOption {
 
     @Override
     public String execute(Biblioteca biblioteca) {
-        return "Harry Potter - J. K. Rowling - 1997\n";
+        String resultString = "";
+        for(Book book : biblioteca.listBooks()) {
+            resultString += book.showDetails() + "\n";
+        }
+        return resultString;
     }
 }

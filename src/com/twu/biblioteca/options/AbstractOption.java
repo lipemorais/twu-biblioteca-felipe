@@ -6,24 +6,24 @@ import com.twu.biblioteca.Biblioteca;
  * Created by gdias on 7/31/15.
  */
 public abstract class AbstractOption {
-    private int id;
+    public int number;
     private String name;
 
-    public AbstractOption(int id, String name) {
-        this.id = id;
+    public AbstractOption(int number, String name) {
+        this.number = number;
         this.name = name;
     }
 
     public String showDetails() {
         String separator = " - ";
-        return id + separator + name;
+        return number + separator + name;
     }
 
     @Override
     public boolean equals(Object other) {
         if (other instanceof AbstractOption) {
             AbstractOption otherOption = (AbstractOption) other;
-            return this.name.equals(otherOption.name) && this.id == otherOption.id;
+            return this.name.equals(otherOption.name) && this.number == otherOption.number;
         }
         return false;
     }
