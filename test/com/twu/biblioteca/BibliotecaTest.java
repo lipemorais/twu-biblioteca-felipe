@@ -52,4 +52,17 @@ public class BibliotecaTest {
         boolean isChecked = biblioteca.checkout("The Lord of the Rings");
         assertFalse(isChecked);
     }
+
+    @Test
+    public void returnBook_ShouldReturnTrue_WhenTheBookIsNotAvailable() throws Exception {
+        biblioteca.checkout("Harry Potter");
+        boolean isReturned = biblioteca.returnBook("Harry Potter");
+        assertTrue(isReturned);
+    }
+
+    @Test
+    public void returnBook_ShouldReturnFalse_WhenTheBookIsAvailable() throws Exception {
+        boolean isReturned = biblioteca.returnBook("Harry Potter");
+        assertFalse(isReturned);
+    }
 }

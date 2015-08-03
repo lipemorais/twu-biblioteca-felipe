@@ -49,4 +49,13 @@ public class Biblioteca {
         }
         return false;
     }
+
+    public boolean returnBook(String bookName) {
+        for(Book book : books) {
+            if(book.name.equals(bookName)) {
+                return book.returnBook();
+            }
+        }
+        return false;
+    }
 }
