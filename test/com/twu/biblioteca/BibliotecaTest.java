@@ -6,7 +6,9 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class BibliotecaTest {
     Biblioteca biblioteca = new Biblioteca();
@@ -33,5 +35,17 @@ public class BibliotecaTest {
 
         assertEquals(expected.size(), biblioteca.listBooks().size());
         assertEquals(expectedBook.name + separator + expectedBook.author + separator + expectedBook.year , biblioteca.listBooks().get(0).showDetails());
+    }
+
+    @Test
+    public void checkout_ShouldReturnTrue_WhenTheBookIsAvailable() throws Exception {
+        boolean isChecked = biblioteca.checkout("Harry Potter");
+        assertTrue(isChecked);
+    }
+
+    @Test
+    public void checkout_ShouldReturnFalse_WhenTheBookIsNotAvailable() throws Exception {
+        boolean isChecked = biblioteca.checkout("The Lord of the Rings");
+        assertFalse(isChecked);
     }
 }

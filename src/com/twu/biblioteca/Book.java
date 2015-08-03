@@ -7,12 +7,14 @@ public class Book {
     public String name;
     public String author;
     public int year;
+    public boolean isChecked;
 
 
     public Book(String name, String author, int year) {
         this.name = name;
         this.author = author;
         this.year = year;
+        this.isChecked = false;
     }
 
     public String showDetails() {
@@ -29,5 +31,14 @@ public class Book {
         }
 
         return false;
+    }
+
+    public boolean checkout() {
+        if (isChecked) {
+            return  false;
+        } else {
+            this.isChecked = true;
+            return true;
+        }
     }
 }

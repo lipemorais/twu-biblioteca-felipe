@@ -31,4 +31,13 @@ public class Biblioteca {
         Book book = new Book("Harry Potter", "J. K. Rowling", 1997);
         books.add(book);
     }
+
+    public boolean checkout(String bookName) {
+        for(Book book : books) {
+            if(book.name.equals(bookName)) {
+                return book.checkout();
+            }
+        }
+        return false;
+    }
 }
