@@ -8,6 +8,8 @@ import com.twu.biblioteca.options.Option;
  * Created by gdias on 7/31/15.
  */
 public class Menu {
+    public static final  int LIST_BOOKS_NUMBER = 1;
+
     public String listOptions() {
         return "1 - List books";
     }
