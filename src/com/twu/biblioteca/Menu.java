@@ -14,6 +14,7 @@ public class Menu {
     public Menu() {
         options.add(new ListBooksOption(MenuOptionsConsts.LIST_BOOKS_OPTION_NUMBER, MenuOptionsConsts.LIST_BOOKS_OPTION_NAME));
         options.add(new CheckoutOption(MenuOptionsConsts.CHECKOUT_OPTION_NUMBER, MenuOptionsConsts.CHECKOUT_OPTION_NAME));
+        options.add(new ReturnBookOption(MenuOptionsConsts.RETURN_BOOK_OPTION_NUMBER, MenuOptionsConsts.RETURN_BOOK_OPTION_NAME));
         options.add(new QuitOption(MenuOptionsConsts.QUIT_OPTION_NUMBER, MenuOptionsConsts.QUIT_OPTION_NAME));
     }
 
