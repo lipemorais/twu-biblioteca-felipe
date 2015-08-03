@@ -24,12 +24,21 @@ public class Biblioteca {
     }
 
     public List<Book> listBooks() {
-        return books;
+        List<Book> availableBooks = new ArrayList<Book>();
+
+        for(Book book : books) {
+            if(!book.isChecked) {
+                availableBooks.add(book);
+            }
+        }
+
+        return availableBooks;
     }
 
     private void initialiazeBookList() {
-        Book book = new Book("Harry Potter", "J. K. Rowling", 1997);
-        books.add(book);
+        books.add(new Book("Harry Potter", "J. K. Rowling", 1997));
+        books.add(new Book("The Little Prince", "Antoine de Saint-Exupéry", 1943));
+        books.add(new Book("Freakonomics", "Stephen Dubner", 2005));
     }
 
     public boolean checkout(String bookName) {
