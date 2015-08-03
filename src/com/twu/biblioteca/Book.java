@@ -41,4 +41,13 @@ public class Book {
             return true;
         }
     }
+
+    public boolean returnBook() {
+        if(isChecked) {
+            this.isChecked = false;
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
