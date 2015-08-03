@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.options.InvalidOption;
 import com.twu.biblioteca.options.ListBooksOption;
 import com.twu.biblioteca.options.Option;
 
@@ -18,7 +19,7 @@ public class Menu {
                 option = new ListBooksOption(1, "List books");
                 break;
             default:
-                option = null;
+                option = new InvalidOption(0, "Invalid option");
         }
 
         return option;
