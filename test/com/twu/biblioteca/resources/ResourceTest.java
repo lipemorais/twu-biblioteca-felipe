@@ -11,27 +11,36 @@ import static org.junit.Assert.assertTrue;
 public class ResourceTest {
     @Test
     public void checkoutResource_ShouldReturnTrue_WhenTheResourceIsAvailable() throws Exception {
-        Resource resource = new Resource();
+        Resource resource = getConcreteResource();
         assertTrue(resource.checkoutResource());
     }
 
     @Test
     public void checkoutResource_ShouldReturnFalse_WhenTheResourceIsNotAvailable() throws Exception {
-        Resource resource = new Resource();
+        Resource resource = getConcreteResource();
         resource.checkoutResource();
         assertFalse(resource.checkoutResource());
     }
 
     @Test
     public void returnResource_ShouldReturnTrue_WhenTheResourceIsNotAvailable() throws Exception {
-        Resource resource = new Resource();
+        Resource resource = getConcreteResource();
         resource.checkoutResource();
         assertTrue(resource.returnResource());
     }
 
     @Test
     public void returnResource_ShouldReturnFalse_WhenTheResourceIsAvailable() throws Exception {
-        Resource resource = new Resource();
+        Resource resource = getConcreteResource();
         assertFalse(resource.returnResource());
+    }
+
+    private Resource getConcreteResource() {
+        return new Resource("Harry Potter", 1997) {
+            @Override
+            public String showDetails() {
+                return "";
+            }
+        };
     }
 }

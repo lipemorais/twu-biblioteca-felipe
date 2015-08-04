@@ -44,7 +44,7 @@ public class Biblioteca {
     public boolean checkout(String bookName) {
         for(Book book : books) {
             if(book.name.equals(bookName)) {
-                return book.checkout();
+                return book.checkoutResource();
             }
         }
         return false;
@@ -53,7 +53,7 @@ public class Biblioteca {
     public boolean returnBook(String bookName) {
         for(Book book : books) {
             if(book.name.equals(bookName)) {
-                return book.returnBook();
+                return book.returnResource();
             }
         }
         return false;

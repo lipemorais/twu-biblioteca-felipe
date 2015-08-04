@@ -25,24 +25,24 @@ public class BookTest {
     }
 
     @Test
-    public void checkout_ShouldReturnTrue_WhenTheBookIsAvailable() throws Exception {
-        assertTrue(book.checkout());
+    public void checkoutResource_ShouldReturnTrue_WhenTheBookIsAvailable() throws Exception {
+        assertTrue(book.checkoutResource());
     }
 
     @Test
-    public void checkout_ShouldReturnFalse_WhenTheBookIsNotAvailable() throws Exception {
-        book.checkout();
-        assertFalse(book.checkout());
+    public void checkoutResource_ShouldReturnFalse_WhenTheBookIsNotAvailable() throws Exception {
+        book.checkoutResource();
+        assertFalse(book.checkoutResource());
     }
 
     @Test
-    public void returnBook_ShouldReturnTrue_WhenBookIsNotAvailable() throws Exception {
-        book.checkout();
-        assertTrue(book.returnBook());
+    public void returnResource_ShouldReturnTrue_WhenBookIsNotAvailable() throws Exception {
+        book.checkoutResource();
+        assertTrue(book.returnResource());
     }
 
     @Test
-    public void returnBook_ShouldReturnFalse_WhenBookIsAvailable() throws Exception {
-        assertFalse(book.returnBook());
+    public void returnResource_ShouldReturnFalse_WhenBookIsAvailable() throws Exception {
+        assertFalse(book.returnResource());
     }
 }

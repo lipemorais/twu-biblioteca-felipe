@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by fmorais on 8/4/15.
@@ -20,5 +21,15 @@ public class MovieTest {
         Movie movie = new Movie("Toy Story", "John Lasseter", 1995, 10);
         String expected = "Toy Story - John Lasseter - 1995 - 10";
         assertEquals(expected, movie.showDetails());
+    }
+
+    @Test
+    public void checkoutResource_ShouldReturnTrue_WhenTheResourceIsAvailable() throws Exception {
+        Movie movie = getMovie();
+        assertTrue(movie.checkoutResource());
+    }
+
+    private Movie getMovie() {
+        return new Movie("Toy Story", "John Lasseter", 1995, 10);
     }
 }

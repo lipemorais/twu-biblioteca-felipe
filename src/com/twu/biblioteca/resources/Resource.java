@@ -3,9 +3,17 @@ package com.twu.biblioteca.resources;
 /**
  * Created by fmorais on 8/4/15.
  */
-public class Resource {
+public abstract class Resource {
 
-    private boolean isChecked = false;
+    public String name;
+    public int year;
+    public boolean isChecked;
+
+    public Resource(String name, int year) {
+        this.name = name;
+        this.year = year;
+        this.isChecked = false;
+    }
 
     public boolean checkoutResource() {
         if(isChecked) {
@@ -24,4 +32,6 @@ public class Resource {
             return false;
         }
     }
+
+    public abstract String showDetails();
 }

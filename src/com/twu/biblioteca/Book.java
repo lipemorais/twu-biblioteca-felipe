@@ -1,22 +1,20 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.resources.Resource;
+
 /**
  * Created by fmorais on 7/30/15.
  */
-public class Book {
-    public String name;
+public class Book extends Resource {
     public String author;
-    public int year;
-    public boolean isChecked;
 
 
     public Book(String name, String author, int year) {
-        this.name = name;
+        super(name, year);
         this.author = author;
-        this.year = year;
-        this.isChecked = false;
     }
 
+    @Override
     public String showDetails() {
         String separator = " - ";
         return name + separator + author + separator + Integer.toString(year);
@@ -33,23 +31,6 @@ public class Book {
         return false;
     }
 
-    public boolean checkout() {
-        if (isChecked) {
-            return  false;
-        } else {
-            this.isChecked = true;
-            return true;
-        }
-    }
-
-    public boolean returnBook() {
-        if(isChecked) {
-            this.isChecked = false;
-            return true;
-        } else {
-            return false;
-        }
-    }
     @Override
     public String toString() {
         return this.name;
