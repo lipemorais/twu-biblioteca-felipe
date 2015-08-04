@@ -14,13 +14,17 @@ public class CheckoutOption extends AbstractOption {
 
     @Override
     public String execute(Biblioteca biblioteca) {
-        System.out.println("Enter book name, please.");
-        String userInputBook = GUI.getUserInput();
 
-        if(biblioteca.checkoutResource(userInputBook)) {
-            return "Thank you! Enjoy it.";
-        } else {
-            return "That resource is not available.";
+        if(biblioteca.loggedUserIsCustomer()) {
+            System.out.println("Enter book name, please.");
+            String userInputBook = GUI.getUserInput();
+
+            if (biblioteca.checkoutResource(userInputBook)) {
+                return "Thank you! Enjoy it.";
+            } else {
+                return "That resource is not available.";
+            }
         }
+        return "Permision denied.";
     }
 }

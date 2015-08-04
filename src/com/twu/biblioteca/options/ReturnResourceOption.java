@@ -14,13 +14,16 @@ public class ReturnResourceOption extends AbstractOption {
 
     @Override
     public String execute(Biblioteca biblioteca) {
-        System.out.println("Enter book name, please.");
-        String userInputBook = GUI.getUserInput();
+        if(biblioteca.loggedUserIsCustomer()) {
+            System.out.println("Enter book name, please.");
+            String userInputBook = GUI.getUserInput();
 
-        if(biblioteca.returnResource(userInputBook)) {
-            return "Thank you for returning the resource.";
-        } else {
-            return "That is not a valid resource to return.";
+            if(biblioteca.returnResource(userInputBook)) {
+                return "Thank you for returning the resource.";
+            } else {
+                return "That is not a valid resource to return.";
+            }
         }
+        return "Permission denied";
     }
 }

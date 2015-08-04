@@ -4,6 +4,7 @@ package com.twu.biblioteca;
 import com.twu.biblioteca.resources.Book;
 import com.twu.biblioteca.resources.Movie;
 import com.twu.biblioteca.resources.Resource;
+import junit.framework.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -116,5 +117,22 @@ public class BibliotecaTest {
     @Test
     public void login_ShouldReturnFalse_WhenCredentialsDoNotMatchAnyUser() throws Exception {
         assertFalse(biblioteca.login("wrongLibraryNumber", "wrongPassowrd"));
+    }
+
+    @Test
+    public void isLoggedUserCustomer_ShouldReturnTrue_WhenTheLoggedUserIsACostumer() throws Exception {
+        biblioteca.login("444-5555","456");
+        assertTrue(biblioteca.loggedUserIsCustomer());
+    }
+
+    @Test
+    public void isLoggedUserCustomer_ShouldReturnFalse_WhenTheLoggedUserIsNotCostumer() throws Exception {
+        biblioteca.login("333-4444","123");
+        assertFalse(biblioteca.loggedUserIsCustomer());
+    }
+
+    @Test
+    public void isLoggedUserCustomer_ShouldReturnFalse_WhenThereIsNoLoggedUser() throws Exception {
+        assertFalse(biblioteca.loggedUserIsCustomer());
     }
 }

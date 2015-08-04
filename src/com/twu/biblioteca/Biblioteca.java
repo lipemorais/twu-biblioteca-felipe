@@ -15,6 +15,7 @@ public class Biblioteca {
     private List<Book> books;
     private List<Movie> movies;
     private List<UserAccount> users;
+    private UserAccount loggedUser =  null;
 
     public Biblioteca() {
         initializeBiblioteca();
@@ -83,10 +84,18 @@ public class Biblioteca {
     public boolean login(String libraryNumber, String password) {
         for(UserAccount user : users) {
             if (user.match(libraryNumber, password)){
+                loggedUser = user;
                 return true;
             }
         }
         return false;
+    }
+
+    public boolean loggedUserIsCustomer() {
+        if (loggedUser != null) {
+            return loggedUser.isCustomer();
+        }
+        return  false;
     }
 
     private void initializeBiblioteca() {

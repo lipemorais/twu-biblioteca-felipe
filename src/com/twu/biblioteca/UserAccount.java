@@ -21,6 +21,6 @@ public class UserAccount {
     }
 
     public boolean isCustomer() {
-        return true;
+        return type.equals(Type.CUSTOMER);
     }
 }

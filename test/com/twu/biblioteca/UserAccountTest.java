@@ -27,4 +27,10 @@ public class UserAccountTest {
         UserAccount user = new UserAccount("333-4444", "123", UserAccount.Type.CUSTOMER);
         assertTrue(user.isCustomer());
     }
+
+    @Test
+    public void isCustomer_ShouldReturnFalse_WhenReceivesANonCostumer() throws Exception {
+        UserAccount user = new UserAccount("333-4444", "123", UserAccount.Type.LIBRARIAN);
+        assertFalse(user.isCustomer());
+    }
 }
