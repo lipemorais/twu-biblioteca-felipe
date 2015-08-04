@@ -18,9 +18,9 @@ public class CheckoutOption extends AbstractOption {
         String userInputBook = GUI.getUserInput();
 
         if(biblioteca.checkoutResource(userInputBook)) {
-            return "Thank you! Enjoy the book.";
+            return "Thank you! Enjoy it.";
         } else {
-            return "That book is not available.";
+            return "That resource is not available.";
         }
     }
 }
