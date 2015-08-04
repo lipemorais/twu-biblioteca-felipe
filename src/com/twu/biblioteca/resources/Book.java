@@ -1,6 +1,4 @@
-package com.twu.biblioteca;
-
-import com.twu.biblioteca.resources.Resource;
+package com.twu.biblioteca.resources;
 
 /**
  * Created by fmorais on 7/30/15.

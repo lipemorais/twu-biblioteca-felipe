@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.resources.Book;
+
 import java.util.ArrayList;
 import java.util.List;
 
