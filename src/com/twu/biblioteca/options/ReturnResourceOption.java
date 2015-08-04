@@ -18,9 +18,9 @@ public class ReturnResourceOption extends AbstractOption {
         String userInputBook = GUI.getUserInput();
 
         if(biblioteca.returnResource(userInputBook)) {
-            return "Thank you for returning the book.";
+            return "Thank you for returning the resource.";
         } else {
-            return "That is not a valid book to return.";
+            return "That is not a valid resource to return.";
         }
     }
 }
