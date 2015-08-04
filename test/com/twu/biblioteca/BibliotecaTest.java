@@ -107,4 +107,14 @@ public class BibliotecaTest {
         boolean isReturned = biblioteca.returnResource("Harry Potter");
         assertFalse(isReturned);
     }
+
+    @Test
+    public void login_ShouldReturnTrue_WhenCredentialsMatchSomeUser() throws Exception {
+        assertTrue(biblioteca.login("333-4444", "123"));
+    }
+
+    @Test
+    public void login_ShouldReturnFalse_WhenCredentialsDoNotMatchAnyUser() throws Exception {
+        assertFalse(biblioteca.login("wrongLibraryNumber", "wrongPassowrd"));
+    }
 }

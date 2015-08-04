@@ -11,18 +11,18 @@ import java.util.List;
  * Created by fmorais on 7/30/15.
  */
 public class Biblioteca {
-    String welcomeMessage = "Welcome to Biblioteca";
-    List<Book> books = new ArrayList<Book>();
-    List<Movie> movies = new ArrayList<Movie>();
+    private String welcomeMessage = "Welcome to Biblioteca";
+    private List<Book> books;
+    private List<Movie> movies;
+    private List<UserAccount> users;
 
     public Biblioteca() {
-        initialiazeBookList();
-        initialiazeMovieList();
+        initializeBiblioteca();
     }
 
     public Biblioteca(String welcomeMessage) {
         this.welcomeMessage = welcomeMessage;
-        initialiazeBookList();
+        initializeBiblioteca();
     }
 
     public String welcomeUser() {
@@ -58,17 +58,6 @@ public class Biblioteca {
         return resourcesList;
     }
 
-    private void initialiazeBookList() {
-        books.add(new Book("Harry Potter", "J. K. Rowling", 1997));
-        books.add(new Book("The Little Prince", "Antoine de Saint-Exupéry", 1943));
-        books.add(new Book("Freakonomics", "Stephen Dubner", 2005));
-    }
-
-    private void initialiazeMovieList() {
-        movies.add(new Movie("The Lord of The Rings", "Peter Jackson", 2001, 10));
-        movies.add(new Movie("Toy Story", "John Lasseter", 1995, 10));
-    }
-
     public boolean checkoutResource(String resourceName) {
         for(Resource resource : listResources()) {
             if(resource.name.equals(resourceName)) {
@@ -85,5 +74,40 @@ public class Biblioteca {
             }
         }
         return false;
+    }
+
+    public boolean login(String libraryNumber, String password) {
+        for(UserAccount user : users) {
+            if (user.match(libraryNumber, password)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void initializeBiblioteca() {
+        initialiazeBookList();
+        initialiazeMovieList();
+        initializeUserList();
+    }
+
+    private void initialiazeBookList() {
+        books = new ArrayList<Book>();
+        books.add(new Book("Harry Potter", "J. K. Rowling", 1997));
+        books.add(new Book("The Little Prince", "Antoine de Saint-Exupéry", 1943));
+        books.add(new Book("Freakonomics", "Stephen Dubner", 2005));
+    }
+
+    private void initialiazeMovieList() {
+        movies = new ArrayList<Movie>();
+        movies.add(new Movie("The Lord of The Rings", "Peter Jackson", 2001, 10));
+        movies.add(new Movie("Toy Story", "John Lasseter", 1995, 10));
+    }
+
+    private void initializeUserList() {
+        users = new ArrayList<UserAccount>();
+        users.add(new UserAccount("333-4444", "123"));
+        users.add(new UserAccount("444-5555", "456"));
+        users.add(new UserAccount("555-6666", "789"));
     }
 }
