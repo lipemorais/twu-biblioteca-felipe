@@ -67,10 +67,14 @@ public class Biblioteca {
         return false;
     }
 
-    public boolean returnResource(String bookName) {
-        for(Book book : books) {
-            if(book.name.equals(bookName)) {
-                return book.returnResource();
+    public boolean returnResource(String resourceName) {
+        List<Resource> allResources = new ArrayList<Resource>();
+        allResources.addAll(books);
+        allResources.addAll(movies);
+
+        for(Resource resource : allResources) {
+            if(resource.name.equals(resourceName)) {
+                return resource.returnResource();
             }
         }
         return false;
