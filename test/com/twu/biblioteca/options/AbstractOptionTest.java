@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 /**
  * Created by gdias on 7/31/15.
  */
-public class OptionTest {
+public class AbstractOptionTest {
     @Test
     public void equals_ShouldReturnFalse_WhenTheParameterIsNotAnOption() throws Exception {
         AbstractOption optionA = getConcreteOption(1, "List books");

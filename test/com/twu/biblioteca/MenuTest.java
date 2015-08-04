@@ -25,7 +25,7 @@ public class MenuTest {
 
     @Test
     public void selectOption_ShouldReturnAListBooksOption_WhenReceivesListBooksOptionNumber() throws Exception {
-        assertTrue(menu.selectOption(MenuOptionsConsts.LIST_BOOKS_OPTION_NUMBER) instanceof ListBooksOption);
+        assertTrue(menu.selectOption(MenuOptionsConsts.LIST_BOOKS_OPTION_NUMBER) instanceof ListResourcesOption);
     }
 
     @Test

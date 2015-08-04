@@ -9,10 +9,10 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by gdias on 8/3/15.
  */
-public class ListBooksOptionTest {
+public class ListResourcesOptionTest {
     @Test
     public void execute_ShouldReturnAListOfBooksAsString() throws Exception {
-        AbstractOption listBooksOption = new ListBooksOption(MenuOptionsConsts.LIST_BOOKS_OPTION_NUMBER, MenuOptionsConsts.LIST_BOOKS_OPTION_NAME);
+        AbstractOption listBooksOption = new ListResourcesOption(MenuOptionsConsts.LIST_BOOKS_OPTION_NUMBER, MenuOptionsConsts.LIST_BOOKS_OPTION_NAME);
 
         String expected = "Harry Potter - J. K. Rowling - 1997\n";
         expected += "The Little Prince - Antoine de Saint-Exupéry - 1943\n";
