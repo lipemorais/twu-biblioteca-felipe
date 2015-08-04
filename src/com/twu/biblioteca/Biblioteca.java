@@ -110,8 +110,8 @@ public class Biblioteca {
 
     private void initializeUserList() {
         users = new ArrayList<UserAccount>();
-        users.add(new UserAccount("333-4444", "123"));
-        users.add(new UserAccount("444-5555", "456"));
-        users.add(new UserAccount("555-6666", "789"));
+        users.add(new UserAccount("333-4444", "123", UserAccount.Type.LIBRARIAN));
+        users.add(new UserAccount("444-5555", "456", UserAccount.Type.CUSTOMER));
+        users.add(new UserAccount("555-6666", "789", UserAccount.Type.CUSTOMER));
     }
 }

@@ -11,14 +11,20 @@ import static org.junit.Assert.assertTrue;
 public class UserAccountTest {
     @Test
     public void match_ShouldReturnFalse_WhenReceivesWrongCredentials() throws Exception {
-        UserAccount userAccount = new UserAccount("333-4444", "123");
+        UserAccount userAccount = new UserAccount("333-4444", "123", UserAccount.Type.CUSTOMER);
         assertFalse(userAccount.match("wrongLibraryNumber", "WrongPassword"));
     }
 
     @Test
     public void match_ShouldReturnTrue_WhenReceivesTheRightCredentials() throws Exception {
-        UserAccount userAccount = new UserAccount("333-4444", "123");
+        UserAccount userAccount = new UserAccount("333-4444", "123", UserAccount.Type.CUSTOMER);
         assertTrue(userAccount.match("333-4444", "123"));
 
+    }
+
+    @Test
+    public void isCustomer_ShouldReturnTrue_WhenReceivesACostumer() throws Exception {
+        UserAccount user = new UserAccount("333-4444", "123", UserAccount.Type.CUSTOMER);
+        assertTrue(user.isCustomer());
     }
 }
