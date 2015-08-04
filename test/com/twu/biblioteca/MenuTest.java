@@ -20,11 +20,11 @@ public class MenuTest {
 
     @Test
     public void listOptions_ShouldReturnTheMenuOptions() throws Exception {
-        assertEquals("1 - List books\n2 - Checkout book\n3 - Return book\n5 - Quit\n", menu.listOptions());
+        assertEquals("1 - List resources\n2 - Checkout book\n3 - Return book\n5 - Quit\n", menu.listOptions());
     }
 
     @Test
-    public void selectOption_ShouldReturnAListBooksOption_WhenReceivesListBooksOptionNumber() throws Exception {
+    public void selectOption_ShouldReturnAListResourcesOption_WhenReceivesListBooksOptionNumber() throws Exception {
         assertTrue(menu.selectOption(MenuOptionsConsts.LIST_RESOURCES_OPTION_NUMBER) instanceof ListResourcesOption);
     }
 

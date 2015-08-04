@@ -17,8 +17,8 @@ public class ListResourcesOptionTest {
         String expected = "Harry Potter - J. K. Rowling - 1997\n";
         expected += "The Little Prince - Antoine de Saint-Exupéry - 1943\n";
         expected += "Freakonomics - Stephen Dubner - 2005\n";
-        expected += "Toy Story - John Lasseter - 1995 - 10\n";
         expected += "The Lord of The Rings - Peter Jackson - 2001 - 10\n";
+        expected += "Toy Story - John Lasseter - 1995 - 10\n";
 
         assertEquals(expected, listResourcesOption.execute(new Biblioteca()));
     }

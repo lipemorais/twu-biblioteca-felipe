@@ -11,7 +11,7 @@ public class MenuOptionsConsts {
     public static final int QUIT_OPTION_NUMBER = 5;
 
     public static final String INVALID_OPTION_NAME = "Invalid option";
-    public static final String LIST_RESOURCES_OPTION_NAME = "List books";
+    public static final String LIST_RESOURCES_OPTION_NAME = "List resources";
     public static final String CHECKOUT_OPTION_NAME = "Checkout book";
     public static final String RETURN_BOOK_OPTION_NAME = "Return book";
     public static final String QUIT_OPTION_NAME = "Quit";
