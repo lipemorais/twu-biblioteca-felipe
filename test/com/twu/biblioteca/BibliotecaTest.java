@@ -70,6 +70,11 @@ public class BibliotecaTest {
         expected.add(new Movie("Toy Story", "John Lasseter", 1995, 10));
 
         assertEquals(expected, biblioteca.listResources());
+
+        expected.remove(4);
+        biblioteca.checkoutResource("Toy Story");
+
+        assertEquals(expected, biblioteca.listResources());
     }
 
     @Test
@@ -79,8 +84,14 @@ public class BibliotecaTest {
     }
 
     @Test
-    public void checkoutResource_ShouldReturnFalse_WhenTheBookIsNotAvailable() throws Exception {
-        boolean isChecked = biblioteca.checkoutResource("The Lord of the Rings");
+    public void checkoutResource_ShouldReturnTrue_WhenTheMovieIsAvailable() throws Exception {
+        boolean isChecked = biblioteca.checkoutResource("Toy Story");
+        assertTrue(isChecked);
+    }
+
+    @Test
+    public void checkoutResource_ShouldReturnFalse_WhenTheResourceIsNotAvailable() throws Exception {
+        boolean isChecked = biblioteca.checkoutResource("The Lord of the Onion Rings");
         assertFalse(isChecked);
     }
 

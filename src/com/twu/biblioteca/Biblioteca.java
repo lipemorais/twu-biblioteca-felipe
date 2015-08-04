@@ -42,7 +42,13 @@ public class Biblioteca {
     }
 
     public List<Movie> listMovies() {
-        return movies;
+        List<Movie> availableMovies = new ArrayList<Movie>();
+        for (Movie movie : movies) {
+            if (!movie.isChecked) {
+                availableMovies.add(movie);
+            }
+        }
+        return availableMovies;
     }
 
     public List<Resource> listResources() {
@@ -63,10 +69,10 @@ public class Biblioteca {
         movies.add(new Movie("Toy Story", "John Lasseter", 1995, 10));
     }
 
-    public boolean checkoutResource(String bookName) {
-        for(Book book : books) {
-            if(book.name.equals(bookName)) {
-                return book.checkoutResource();
+    public boolean checkoutResource(String resourceName) {
+        for(Resource resource : listResources()) {
+            if(resource.name.equals(resourceName)) {
+                return resource.checkoutResource();
             }
         }
         return false;
