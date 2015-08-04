@@ -2,6 +2,8 @@ package com.twu.biblioteca.options;
 
 import com.twu.biblioteca.Biblioteca;
 import com.twu.biblioteca.resources.Book;
+import com.twu.biblioteca.resources.Movie;
+import com.twu.biblioteca.resources.Resource;
 
 /**
  * Created by gdias on 8/3/15.
@@ -14,8 +16,8 @@ public class ListResourcesOption extends AbstractOption {
     @Override
     public String execute(Biblioteca biblioteca) {
         String resultString = "";
-        for(Book book : biblioteca.listBooks()) {
-            resultString += book.showDetails() + "\n";
+        for(Resource resource: biblioteca.listResources()) {
+            resultString += resource.showDetails() + "\n";
         }
         return resultString;
     }

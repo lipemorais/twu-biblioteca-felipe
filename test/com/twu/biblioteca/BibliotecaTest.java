@@ -2,6 +2,9 @@ package com.twu.biblioteca;
 
 
 import com.twu.biblioteca.resources.Book;
+import com.twu.biblioteca.resources.Movie;
+import com.twu.biblioteca.resources.Resource;
+import junit.framework.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -45,6 +48,29 @@ public class BibliotecaTest {
         biblioteca.returnBook("Freakonomics");
 
         assertEquals(expected, biblioteca.listBooks());
+    }
+
+    @Test
+    public void listMovies_ShouldListAllAvailableMovies() throws Exception {
+        biblioteca = new Biblioteca();
+        List<Movie> expected = new ArrayList<Movie>();
+        expected.add(new Movie("The Lord of The Rings", "Peter Jackson", 2001, 10));
+        expected.add(new Movie("Toy Story", "John Lasseter", 1995, 10));
+
+        assertEquals(expected, biblioteca.listMovies());
+    }
+
+    @Test
+    public void listResources_ShouldListAllAvailableResources() throws Exception {
+        biblioteca = new Biblioteca();
+        List<Resource> expected = new ArrayList<Resource>();
+        expected.add(new Book("Harry Potter", "J. K. Rowling", 1997));
+        expected.add(new Book("The Little Prince", "Antoine de Saint-Exupéry", 1943));
+        expected.add(new Book("Freakonomics", "Stephen Dubner", 2005));
+        expected.add(new Movie("The Lord of The Rings", "Peter Jackson", 2001, 10));
+        expected.add(new Movie("Toy Story", "John Lasseter", 1995, 10));
+
+        assertEquals(expected, biblioteca.listResources());
     }
 
     @Test
