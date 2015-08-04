@@ -63,7 +63,7 @@ public class Biblioteca {
         movies.add(new Movie("Toy Story", "John Lasseter", 1995, 10));
     }
 
-    public boolean checkout(String bookName) {
+    public boolean checkoutResource(String bookName) {
         for(Book book : books) {
             if(book.name.equals(bookName)) {
                 return book.checkoutResource();
@@ -72,7 +72,7 @@ public class Biblioteca {
         return false;
     }
 
-    public boolean returnBook(String bookName) {
+    public boolean returnResource(String bookName) {
         for(Book book : books) {
             if(book.name.equals(bookName)) {
                 return book.returnResource();

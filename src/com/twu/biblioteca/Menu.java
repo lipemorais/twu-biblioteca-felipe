@@ -14,7 +14,7 @@ public class Menu {
     public Menu() {
         options.add(new ListResourcesOption(MenuOptionsConsts.LIST_RESOURCES_OPTION_NUMBER, MenuOptionsConsts.LIST_RESOURCES_OPTION_NAME));
         options.add(new CheckoutOption(MenuOptionsConsts.CHECKOUT_OPTION_NUMBER, MenuOptionsConsts.CHECKOUT_OPTION_NAME));
-        options.add(new ReturnBookOption(MenuOptionsConsts.RETURN_BOOK_OPTION_NUMBER, MenuOptionsConsts.RETURN_BOOK_OPTION_NAME));
+        options.add(new ReturnResourceOption(MenuOptionsConsts.RETURN_BOOK_OPTION_NUMBER, MenuOptionsConsts.RETURN_BOOK_OPTION_NAME));
         options.add(new QuitOption(MenuOptionsConsts.QUIT_OPTION_NUMBER, MenuOptionsConsts.QUIT_OPTION_NAME));
     }
 

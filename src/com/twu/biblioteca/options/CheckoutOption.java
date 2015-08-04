@@ -2,7 +2,6 @@ package com.twu.biblioteca.options;
 
 import com.twu.biblioteca.Biblioteca;
 import com.twu.biblioteca.GUI;
-import org.junit.Ignore;
 
 /**
  * Created by gdias on 8/3/15.
@@ -18,7 +17,7 @@ public class CheckoutOption extends AbstractOption {
         System.out.println("Enter book name, please.");
         String userInputBook = GUI.getUserInput();
 
-        if(biblioteca.checkout(userInputBook)) {
+        if(biblioteca.checkoutResource(userInputBook)) {
             return "Thank you! Enjoy the book.";
         } else {
             return "That book is not available.";

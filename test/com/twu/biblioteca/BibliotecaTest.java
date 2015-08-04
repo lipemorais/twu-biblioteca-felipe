@@ -4,7 +4,6 @@ package com.twu.biblioteca;
 import com.twu.biblioteca.resources.Book;
 import com.twu.biblioteca.resources.Movie;
 import com.twu.biblioteca.resources.Resource;
-import junit.framework.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -39,13 +38,13 @@ public class BibliotecaTest {
         assertEquals(expected, biblioteca.listBooks());
 
         expected.remove(2);
-        biblioteca.checkout("Freakonomics");
+        biblioteca.checkoutResource("Freakonomics");
 
         assertEquals(expected, biblioteca.listBooks());
 
 
         expected.add(new Book("Freakonomics", "Stephen Dubner", 2005));
-        biblioteca.returnBook("Freakonomics");
+        biblioteca.returnResource("Freakonomics");
 
         assertEquals(expected, biblioteca.listBooks());
     }
@@ -74,27 +73,27 @@ public class BibliotecaTest {
     }
 
     @Test
-    public void checkout_ShouldReturnTrue_WhenTheBookIsAvailable() throws Exception {
-        boolean isChecked = biblioteca.checkout("Harry Potter");
+    public void checkoutResource_ShouldReturnTrue_WhenTheBookIsAvailable() throws Exception {
+        boolean isChecked = biblioteca.checkoutResource("Harry Potter");
         assertTrue(isChecked);
     }
 
     @Test
-    public void checkout_ShouldReturnFalse_WhenTheBookIsNotAvailable() throws Exception {
-        boolean isChecked = biblioteca.checkout("The Lord of the Rings");
+    public void checkoutResource_ShouldReturnFalse_WhenTheBookIsNotAvailable() throws Exception {
+        boolean isChecked = biblioteca.checkoutResource("The Lord of the Rings");
         assertFalse(isChecked);
     }
 
     @Test
-    public void returnBook_ShouldReturnTrue_WhenTheBookIsNotAvailable() throws Exception {
-        biblioteca.checkout("Harry Potter");
-        boolean isReturned = biblioteca.returnBook("Harry Potter");
+    public void returnResource_ShouldReturnTrue_WhenTheBookIsNotAvailable() throws Exception {
+        biblioteca.checkoutResource("Harry Potter");
+        boolean isReturned = biblioteca.returnResource("Harry Potter");
         assertTrue(isReturned);
     }
 
     @Test
-    public void returnBook_ShouldReturnFalse_WhenTheBookIsAvailable() throws Exception {
-        boolean isReturned = biblioteca.returnBook("Harry Potter");
+    public void returnResource_ShouldReturnFalse_WhenTheBookIsAvailable() throws Exception {
+        boolean isReturned = biblioteca.returnResource("Harry Potter");
         assertFalse(isReturned);
     }
 }

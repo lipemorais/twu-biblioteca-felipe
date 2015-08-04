@@ -40,7 +40,7 @@ public class MenuTest {
 
     @Test
     public void selectOption_ShouldReturnAReturnBookOption_WhenReceivesReturnBookOptionNumber() throws Exception {
-        assertTrue(menu.selectOption(MenuOptionsConsts.RETURN_BOOK_OPTION_NUMBER) instanceof ReturnBookOption);
+        assertTrue(menu.selectOption(MenuOptionsConsts.RETURN_BOOK_OPTION_NUMBER) instanceof ReturnResourceOption);
     }
 
     @Test
