@@ -5,6 +5,7 @@ import com.twu.biblioteca.resources.Book;
 import com.twu.biblioteca.resources.Movie;
 import com.twu.biblioteca.resources.Resource;
 import junit.framework.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -15,10 +16,17 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class BibliotecaTest {
-    Biblioteca biblioteca = new Biblioteca();
+    private Biblioteca biblioteca;
+
+    @Before
+    public void setUp() throws Exception {
+        biblioteca = new Biblioteca();
+        biblioteca.login("444-5555", "456");
+
+    }
+
     @Test
     public void welcomeUser_ShouldReturnDefaultWelcomeMessage_WhenNoMessageIsGiven() {
-        biblioteca = new Biblioteca();
         assertEquals("Welcome to Biblioteca", biblioteca.welcomeUser());
     }
 
@@ -30,7 +38,6 @@ public class BibliotecaTest {
 
     @Test
     public void listBooks_ShouldListAllAvailableBooks() throws Exception {
-        biblioteca = new Biblioteca();
         List<Book> expected = new ArrayList<Book>();
         expected.add(new Book("Harry Potter", "J. K. Rowling", 1997));
         expected.add(new Book("The Little Prince", "Antoine de Saint-Exupéry", 1943));
@@ -52,7 +59,6 @@ public class BibliotecaTest {
 
     @Test
     public void listMovies_ShouldListAllAvailableMovies() throws Exception {
-        biblioteca = new Biblioteca();
         List<Movie> expected = new ArrayList<Movie>();
         expected.add(new Movie("The Lord of The Rings", "Peter Jackson", 2001, 10));
         expected.add(new Movie("Toy Story", "John Lasseter", 1995, 10));
@@ -62,7 +68,6 @@ public class BibliotecaTest {
 
     @Test
     public void listResources_ShouldListAllAvailableResources() throws Exception {
-        biblioteca = new Biblioteca();
         List<Resource> expected = new ArrayList<Resource>();
         expected.add(new Book("Harry Potter", "J. K. Rowling", 1997));
         expected.add(new Book("The Little Prince", "Antoine de Saint-Exupéry", 1943));
@@ -133,6 +138,37 @@ public class BibliotecaTest {
 
     @Test
     public void isLoggedUserCustomer_ShouldReturnFalse_WhenThereIsNoLoggedUser() throws Exception {
+        biblioteca = new Biblioteca();
         assertFalse(biblioteca.loggedUserIsCustomer());
+    }
+
+    @Test
+    public void isLoggedUserLibrarian_ShouldReturnTrue_WhenTheLoggedUserIsALibrarian() throws Exception {
+        biblioteca.login("333-4444", "123");
+        assertTrue(biblioteca.loggedUserIsLibrarian());
+    }
+
+    @Test
+    public void isLoggedUserLibrarian_ShouldReturnFalse_WhenTheLoggedUserIsNotLibrarian() throws Exception {
+        biblioteca.login("444-5555","456");
+        assertFalse(biblioteca.loggedUserIsLibrarian());
+    }
+
+    @Test
+    public void isLoggedUserLibrarian_ShouldReturnFalse_WhenThereIsNoLoggedUser() throws Exception {
+        assertFalse(biblioteca.loggedUserIsLibrarian());
+    }
+
+    @Test
+    public void verifyBook_ShouldReturnCustomerLibraryNumber_WhenABookIsCheckedOut() throws Exception {
+        biblioteca.login("444-5555","456");
+        biblioteca.checkoutResource("Harry Potter");
+
+        assertEquals("444-5555", biblioteca.verifyBook("Harry Potter"));
+    }
+
+    @Test
+    public void verifyBook_ShouldReturnEmptyString_WhenABookIsNotCheckedOut() throws Exception {
+        assertEquals("", biblioteca.verifyBook("Harry Potter"));
     }
 }

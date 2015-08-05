@@ -26,7 +26,7 @@ public class MovieTest {
     @Test
     public void checkoutResource_ShouldReturnTrue_WhenTheResourceIsAvailable() throws Exception {
         Movie movie = getMovie();
-        assertTrue(movie.checkoutResource());
+        assertTrue(movie.checkoutResource("333-4444"));
     }
 
     private Movie getMovie() {

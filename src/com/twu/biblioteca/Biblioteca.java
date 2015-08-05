@@ -62,7 +62,7 @@ public class Biblioteca {
     public boolean checkoutResource(String resourceName) {
         for(Resource resource : listResources()) {
             if(resource.name.equals(resourceName)) {
-                return resource.checkoutResource();
+                return resource.checkoutResource(loggedUser.libraryNumber);
             }
         }
         return false;
@@ -96,6 +96,22 @@ public class Biblioteca {
             return loggedUser.isCustomer();
         }
         return  false;
+    }
+
+    public boolean loggedUserIsLibrarian() {
+        if (loggedUser != null) {
+            return loggedUser.isLibrarian();
+        }
+        return false;
+    }
+
+    public String verifyBook(String userInputBook) {
+        for (Book book : books) {
+            if (book.name.equals(userInputBook) && book.isChecked) {
+                return book.whoCheckedOut;
+            }
+        }
+        return "";
     }
 
     private void initializeBiblioteca() {

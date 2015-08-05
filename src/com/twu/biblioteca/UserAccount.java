@@ -6,10 +6,10 @@ package com.twu.biblioteca;
 public class UserAccount {
     public enum Type {CUSTOMER, LIBRARIAN;};
 
-    private String libraryNumber;
+    public String libraryNumber;
+
     private String password;
     private Type type;
-
     public UserAccount(String libraryNumber, String password, Type type) {
         this.libraryNumber = libraryNumber;
         this.password = password;
@@ -22,5 +22,9 @@ public class UserAccount {
 
     public boolean isCustomer() {
         return type.equals(Type.CUSTOMER);
+    }
+
+    public boolean isLibrarian() {
+        return type.equals(Type.LIBRARIAN);
     }
 }

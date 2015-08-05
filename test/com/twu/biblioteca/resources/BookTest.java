@@ -1,6 +1,5 @@
 package com.twu.biblioteca.resources;
 
-import com.twu.biblioteca.resources.Book;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -27,18 +26,18 @@ public class BookTest {
 
     @Test
     public void checkoutResource_ShouldReturnTrue_WhenTheBookIsAvailable() throws Exception {
-        assertTrue(book.checkoutResource());
+        assertTrue(book.checkoutResource("333-4444"));
     }
 
     @Test
     public void checkoutResource_ShouldReturnFalse_WhenTheBookIsNotAvailable() throws Exception {
-        book.checkoutResource();
-        assertFalse(book.checkoutResource());
+        book.checkoutResource("333-4444");
+        assertFalse(book.checkoutResource("333-4444"));
     }
 
     @Test
     public void returnResource_ShouldReturnTrue_WhenBookIsNotAvailable() throws Exception {
-        book.checkoutResource();
+        book.checkoutResource("333-4444");
         assertTrue(book.returnResource());
     }
 

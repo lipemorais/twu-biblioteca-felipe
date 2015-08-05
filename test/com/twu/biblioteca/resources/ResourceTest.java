@@ -12,20 +12,20 @@ public class ResourceTest {
     @Test
     public void checkoutResource_ShouldReturnTrue_WhenTheResourceIsAvailable() throws Exception {
         Resource resource = getConcreteResource();
-        assertTrue(resource.checkoutResource());
+        assertTrue(resource.checkoutResource("333-4444"));
     }
 
     @Test
     public void checkoutResource_ShouldReturnFalse_WhenTheResourceIsNotAvailable() throws Exception {
         Resource resource = getConcreteResource();
-        resource.checkoutResource();
-        assertFalse(resource.checkoutResource());
+        resource.checkoutResource("333-4444");
+        assertFalse(resource.checkoutResource("333-4444"));
     }
 
     @Test
     public void returnResource_ShouldReturnTrue_WhenTheResourceIsNotAvailable() throws Exception {
         Resource resource = getConcreteResource();
-        resource.checkoutResource();
+        resource.checkoutResource("333-4444");
         assertTrue(resource.returnResource());
     }
 
