@@ -139,4 +139,8 @@ public class Biblioteca {
         users.add(new UserAccount("444-5555", "456", UserAccount.Type.CUSTOMER, "John", "john@mail.com", "12345678"));
         users.add(new UserAccount("555-6666", "789", UserAccount.Type.CUSTOMER, "John", "john@mail.com", "12345678"));
     }
+
+    public String showLoggedUserDetails() {
+        return loggedUser.showDetails();
+    }
 }

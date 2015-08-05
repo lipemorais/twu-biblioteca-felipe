@@ -22,7 +22,6 @@ public class BibliotecaTest {
     public void setUp() throws Exception {
         biblioteca = new Biblioteca();
         biblioteca.login("444-5555", "456");
-
     }
 
     @Test
@@ -161,7 +160,7 @@ public class BibliotecaTest {
 
     @Test
     public void verifyBook_ShouldReturnCustomerLibraryNumber_WhenABookIsCheckedOut() throws Exception {
-        biblioteca.login("444-5555","456");
+        biblioteca.login("444-5555", "456");
         biblioteca.checkoutResource("Harry Potter");
 
         assertEquals("444-5555", biblioteca.verifyBook("Harry Potter"));
@@ -170,5 +169,10 @@ public class BibliotecaTest {
     @Test
     public void verifyBook_ShouldReturnEmptyString_WhenABookIsNotCheckedOut() throws Exception {
         assertEquals("", biblioteca.verifyBook("Harry Potter"));
+    }
+
+    @Test
+    public void testName() throws Exception {
+        assertEquals("John - john@mail.com - 12345678", biblioteca.showLoggedUserDetails());
     }
 }

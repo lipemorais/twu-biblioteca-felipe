@@ -20,7 +20,7 @@ public class MenuTest {
 
     @Test
     public void listOptions_ShouldReturnTheMenuOptions() throws Exception {
-        assertEquals("1 - List resources\n2 - Checkout resource\n3 - Return resource\n4 - Log in\n5 - Verify book\n6 - Quit\n", menu.listOptions());
+        assertEquals("1 - List resources\n2 - Checkout resource\n3 - Return resource\n4 - Log in\n5 - Verify book\n6 - My info\n7 - Quit", menu.listOptions());
     }
 
     @Test
